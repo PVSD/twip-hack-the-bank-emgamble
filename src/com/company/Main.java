@@ -5,7 +5,7 @@ import java.util.*;
 import java.text.*;
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws IOException{
 	// write your code here
         NumberFormat fmt = NumberFormat.getNumberInstance();
         fmt.setMinimumFractionDigits(2);
@@ -13,6 +13,8 @@ public class Main {
         String name;
         ArrayList aryLst = new ArrayList();
         ListIterator iter = aryLst.listIterator();
+        FileWriter fw = new FileWriter("C:\\bankAccounts\\Output1.out");
+        PrintWriter output = new PrintWriter(fw);
         do {
             Scanner kbReader = new Scanner(System.in);
             System.out
@@ -25,8 +27,12 @@ public class Main {
                 // between accounts
                 bankAccount theAccount = new bankAccount(name, amount);
                 iter.add(theAccount);
+                output.print(theAccount);
+
             }
         } while (!name.equalsIgnoreCase("EXIT"));
+        output.close();
+        fw.close();
 
         // Search aryLst and print out the name and amount of the largest bank
         // account
