@@ -13,26 +13,40 @@ public class Main {
         String name;
         ArrayList aryLst = new ArrayList();
         ListIterator iter = aryLst.listIterator();
-        FileWriter fw = new FileWriter("C:\\bankAccounts\\Output1.out");
-        PrintWriter output = new PrintWriter(fw);
+
+        FileWriter fw = new FileWriter("bankAccounts.txt");
+        PrintWriter output = new PrintWriter("bankAccounts");
+
+        bankAccount theif = new bankAccount("Mr. P", 0);
+
+
+
         do {
             Scanner kbReader = new Scanner(System.in);
             System.out
                     .print("Please enter the name to whom the account belongs. (\"Exit\" to abort) ");
             name = kbReader.nextLine();
+            output.println(name);
+
+
+
+
             if (!name.equalsIgnoreCase("EXIT")) {
                 System.out.print("Please enter the amount of the deposit. ");
                 double amount = kbReader.nextDouble();
+                output.print(": " + amount);
                 System.out.println(" "); // gives an eye pleasing blank line
                 // between accounts
                 bankAccount theAccount = new bankAccount(name, amount);
                 iter.add(theAccount);
-                output.print(theAccount);
 
             }
         } while (!name.equalsIgnoreCase("EXIT"));
         output.close();
         fw.close();
+
+        List accountlist = new ArrayList();
+
 
         // Search aryLst and print out the name and amount of the largest bank
         // account
