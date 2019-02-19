@@ -17,7 +17,7 @@ public class Main {
         FileWriter fw = new FileWriter("bankAccounts.txt");
         PrintWriter output = new PrintWriter("bankAccounts");
 
-        bankAccount theif = new bankAccount("Mr. P", 0);
+        bankAccount thief = new bankAccount("Mr. P", 0);
 
 
 
